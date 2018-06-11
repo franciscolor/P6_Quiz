@@ -43,7 +43,7 @@ router.get([
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    res.render('index');
+  res.render('index');
 });
 
 // Author page.
@@ -139,15 +139,5 @@ router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
     quizController.adminOrAuthorRequired,
     tipController.destroy);
 
-//Añado dos nuevas rutas para editar y actualizar un tip
-router.get('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)/edit',
-    sessionController.loginRequired,
-    tipController.adminOrAuthorRequired,// me lo invento en /controllers/tip, igual que el de quizController copiar
-    tipController.edit);
-
-
-router.put('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
-    sessionController.loginRequired,
-    tipController.update);
 
 module.exports = router;
